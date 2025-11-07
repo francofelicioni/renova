@@ -32,20 +32,20 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-24 px-4 bg-gradient-to-b from-background to-[#0f0f0f] relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 px-4 bg-gradient-to-b from-background to-[#0f0f0f] relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent pointer-events-none"></div>
 
       <div className="max-w-2xl mx-auto relative z-10">
-        <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground text-center tracking-tight">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 text-foreground text-center tracking-tight">
           Hablemos de Tu Meta
         </h2>
-        <p className="text-center text-muted-foreground mb-16 text-lg font-light">
+        <p className="text-center text-muted-foreground mb-12 sm:mb-16 text-base sm:text-lg font-light">
           Completa el formulario y nos pondremos en contacto dentro de 24 horas.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="bg-card border border-border/50 rounded-xl p-8 md:p-12 space-y-6 backdrop-blur-sm"
+          className="bg-card border border-border/50 rounded-xl p-6 sm:p-8 md:p-12 space-y-6 backdrop-blur-sm"
           name="contact-form"
         >
           <div>
@@ -130,7 +130,7 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="w-full py-4 bg-accent text-accent-foreground font-bold text-lg rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-accent/30 transform hover:scale-105 flex items-center justify-center gap-2"
+            className="w-full py-3 sm:py-4 bg-accent text-accent-foreground font-bold text-base sm:text-lg rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-accent/30 transform hover:scale-105 flex items-center justify-center gap-2"
             aria-label="Enviar formulario de contacto"
           >
             {submitted ? (

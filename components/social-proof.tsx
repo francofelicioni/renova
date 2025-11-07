@@ -25,18 +25,20 @@ export default function SocialProof() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-background" id="testimonios">
+    <section className="py-16 sm:py-24 px-4 bg-background" id="testimonios">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl md:text-6xl font-bold mb-4 text-foreground text-center tracking-tight">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 text-foreground text-center tracking-tight">
           Lo Que Dicen Nuestros Clientes
         </h2>
-        <p className="text-center text-muted-foreground mb-20 text-lg">Resultados reales de personas como vos</p>
+        <p className="text-center text-muted-foreground mb-16 sm:mb-20 text-base sm:text-lg">
+          Resultados reales de personas como vos
+        </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, i) => (
             <article
               key={i}
-              className="bg-card border border-border/50 rounded-xl p-8 hover:border-accent/50 transition-all duration-300 group hover:shadow-lg hover:shadow-accent/5 flex flex-col"
+              className="bg-card border border-border/50 rounded-xl p-6 sm:p-8 hover:border-accent/50 transition-all duration-300 group hover:shadow-lg hover:shadow-accent/5 flex flex-col"
               itemScope
               itemType="https://schema.org/Review"
             >
@@ -46,7 +48,7 @@ export default function SocialProof() {
                 ))}
               </div>
 
-              <p className="text-foreground mb-8 leading-relaxed text-base flex-1" itemProp="reviewBody">
+              <p className="text-foreground mb-8 leading-relaxed text-sm sm:text-base flex-1" itemProp="reviewBody">
                 "{testimonial.quote}"
               </p>
 
@@ -61,10 +63,10 @@ export default function SocialProof() {
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground text-base" itemProp="author">
+                  <p className="font-semibold text-foreground text-sm sm:text-base" itemProp="author">
                     {testimonial.name}
                   </p>
-                  <p className="text-xs text-muted-foreground">{testimonial.goal}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.goal}</p>
                 </div>
               </div>
             </article>
