@@ -19,6 +19,7 @@ const features = {
     "Soporte por WhatsApp con SLA <72 h lun a vie",
     "Orientaciones generales de nutrición (sin macros calculados)",
     '1 "form check" por mes (opción trimestral)',
+    "Garantía de progreso: 2 semanas gratis si no mejoras en semana 3-4",
   ],
 }
 
@@ -40,9 +41,9 @@ export default function PricingCards() {
           Elige el plan que se ajuste mejor a tu objetivo y disponibilidad
         </p>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-end max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
           {/* PROGRAMMING™ Card - Entry Level */}
-          <div className="bg-card border border-border rounded-xl p-8 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-transparent group">
+          <div className="bg-card border border-border rounded-xl p-8 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-transparent group flex flex-col h-full">
             <h3 className="text-3xl font-bold text-foreground mb-2">PROGRAMMING™</h3>
             <p className="text-muted-foreground mb-8 font-light">Para entrenamientos con estructura</p>
 
@@ -61,27 +62,35 @@ export default function PricingCards() {
               "Entrenás con estructura, progresás y no pensás la rutina. Simple y efectivo."
             </p>
 
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-8 flex-1">
               {features.programming.map((feature, i) => (
                 <li key={i} className="flex gap-3 items-start">
-                  <Check className="w-5 h-5 text-accent/70 flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-accent/70 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-foreground/90 text-sm md:text-base">{feature}</span>
                 </li>
               ))}
             </ul>
 
+            <div className="mb-6 p-4 bg-secondary/20 rounded-lg border border-secondary/40">
+              <p className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">✓ Garantía de Progreso</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Si en la semana 3–4 no hay métrica que mejore y cumpliste adherencia, sumo 2 semanas gratis.
+              </p>
+            </div>
+
             <button
               onClick={scrollToForm}
               className="w-full py-3 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent/10 transition-all duration-300"
+              aria-label="Empezar con plan PROGRAMMING"
             >
               Empezar con PROGRAMMING™
             </button>
           </div>
 
           {/* FAST-TRACK Card - Premium */}
-          <div className="bg-gradient-to-br from-accent/15 via-card to-card border-2 border-accent rounded-xl p-10 relative lg:scale-105 lg:z-20 shadow-2xl shadow-accent/10 group hover:shadow-accent/20 transition-all duration-300">
+          <div className="bg-gradient-to-br from-accent/15 via-card to-card border-2 border-accent rounded-xl p-10 relative lg:z-20 shadow-2xl shadow-accent/10 group hover:shadow-accent/20 transition-all duration-300 flex flex-col h-full">
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-              <Zap className="w-4 h-4" />
+              <Zap className="w-4 h-4" aria-hidden="true" />
               ÉLITE • MÁS POPULAR
             </div>
 
@@ -104,10 +113,10 @@ export default function PricingCards() {
               "En 8–12 semanas salís con un físico más definido/funcional y un sistema de hábitos que podés sostener."
             </p>
 
-            <ul className="space-y-3 mb-10">
+            <ul className="space-y-3 mb-10 flex-1">
               {features.fastTrack.map((feature, i) => (
                 <li key={i} className="flex gap-3 items-start">
-                  <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-foreground text-sm md:text-base">{feature}</span>
                 </li>
               ))}
@@ -116,6 +125,7 @@ export default function PricingCards() {
             <button
               onClick={scrollToForm}
               className="w-full py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-accent/30 transform hover:scale-105"
+              aria-label="Quiero mi plan FAST-TRACK"
             >
               Quiero Mi Plan FAST-TRACK
             </button>

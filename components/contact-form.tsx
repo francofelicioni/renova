@@ -46,6 +46,7 @@ export default function ContactForm() {
         <form
           onSubmit={handleSubmit}
           className="bg-card border border-border/50 rounded-xl p-8 md:p-12 space-y-6 backdrop-blur-sm"
+          name="contact-form"
         >
           <div>
             <label
@@ -63,6 +64,7 @@ export default function ContactForm() {
               required
               className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 font-light"
               placeholder="Tu nombre"
+              aria-required="true"
             />
           </div>
 
@@ -79,6 +81,7 @@ export default function ContactForm() {
               required
               className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 font-light"
               placeholder="tu@email.com"
+              aria-required="true"
             />
           </div>
 
@@ -98,6 +101,7 @@ export default function ContactForm() {
               required
               className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 font-light"
               placeholder="+34 600 123 456"
+              aria-required="true"
             />
           </div>
 
@@ -114,6 +118,7 @@ export default function ContactForm() {
               value={formData.objetivo}
               onChange={handleChange}
               className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 cursor-pointer font-light"
+              aria-required="true"
             >
               <option value="Definir">Definir / Bajar Grasa</option>
               <option value="Ganar Músculo">Ganar Músculo</option>
@@ -126,6 +131,7 @@ export default function ContactForm() {
           <button
             type="submit"
             className="w-full py-4 bg-accent text-accent-foreground font-bold text-lg rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-accent/30 transform hover:scale-105 flex items-center justify-center gap-2"
+            aria-label="Enviar formulario de contacto"
           >
             {submitted ? (
               <>
@@ -133,7 +139,7 @@ export default function ContactForm() {
               </>
             ) : (
               <>
-                <Send className="w-5 h-5" />
+                <Send className="w-5 h-5" aria-hidden="true" />
                 Hablemos de tu meta
               </>
             )}
@@ -141,11 +147,11 @@ export default function ContactForm() {
 
           <p className="text-xs text-muted-foreground text-center font-light">
             Protegemos tu privacidad. Consulta nuestro{" "}
-            <a href="#" className="text-accent hover:underline transition-colors">
+            <a href="/aviso-legal" className="text-accent hover:underline transition-colors" rel="noopener noreferrer">
               Aviso Legal
             </a>{" "}
             y{" "}
-            <a href="#" className="text-accent hover:underline transition-colors">
+            <a href="/terminos" className="text-accent hover:underline transition-colors" rel="noopener noreferrer">
               Términos
             </a>
             .
