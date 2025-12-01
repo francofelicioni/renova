@@ -27,8 +27,6 @@ export default function FinalCta() {
           </button>
         </div>
       </section>
-
-      <ContactForm />
     </>
   )
 }

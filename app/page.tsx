@@ -7,6 +7,7 @@ import About from "@/components/about"
 import SocialProof from "@/components/social-proof"
 import FAQ from "@/components/faq"
 import FinalCta from "@/components/final-cta"
+import ContactForm from "@/components/contact-form"
 
 export const metadata = {
   title: "Renova Training – Recomposición corporal para personas que ya entrenan",
@@ -21,11 +22,12 @@ export default function Home() {
       <HowItWorks />
       <Profiles />
       <PricingCards />
+      <FinalCta />
       <LeadMagnet />
       <About />
       <SocialProof />
       <FAQ />
-      <FinalCta />
+      <ContactForm />
     </main>
   )
 }
