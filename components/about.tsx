@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+
 export default function About() {
   return (
     <section id="quienes-somos" className="bg-background px-4 py-16 sm:py-20">
@@ -11,24 +13,54 @@ export default function About() {
         </header>
 
         <div className="grid gap-8 md:grid-cols-2">
-          <article className="rounded-2xl border border-border bg-card/90 p-6 sm:p-8 shadow-sm">
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">Fran</h3>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Soy Fran, desarrollador web y apasionado del entrenamiento de fuerza. Después de años entrenando por mi
-              cuenta, logré una recomposición corporal muy grande al empezar a entrenar con planificación, técnica y
-              hábitos bien trabajados. Hoy uso mi experiencia como alumno y mi cambio físico como ejemplo para
-              acompañar a personas que están en el mismo camino.
-            </p>
+          <article className="rounded-2xl border border-border bg-card/90 overflow-hidden shadow-sm">
+            <div className="flex flex-col">
+              <div className="relative w-full h-64 sm:h-72 md:h-80">
+                <Image
+                  src="/fran.png"
+                  alt="Fran, cofundador de Renova Training"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">Fran</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  Soy Fran, desarrollador web y apasionado del entrenamiento de fuerza. Después de años entrenando por
+                  mi cuenta, logré una recomposición corporal muy grande al empezar a entrenar con planificación,
+                  técnica y hábitos bien trabajados.
+                </p>
+                <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  Hoy uso mi experiencia como alumno y mi cambio físico como ejemplo para acompañar a personas que
+                  están en el mismo camino.
+                </p>
+              </div>
+            </div>
           </article>
 
-          <article className="rounded-2xl border border-border bg-card/90 p-6 sm:p-8 shadow-sm">
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">Juani (Nano)</h3>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Juani (Nano) es entrenador con más de 9 años de experiencia trabajando con todo tipo de personas: desde
-              quienes recién empiezan hasta atletas que buscan rendir mejor. Dirige un box de entrenamiento en
-              Argentina y se especializa en programación de fuerza, técnica de los ejercicios básicos y acompañar
-              procesos de recomposición corporal de forma realista y sostenible.
-            </p>
+          <article className="rounded-2xl border border-border bg-card/90 overflow-hidden shadow-sm">
+            <div className="flex flex-col">
+              <div className="relative w-full h-64 sm:h-72 md:h-80">
+                <Image
+                  src="/nano.png"
+                  alt="Nano, cofundador de Renova Training"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2"> Nano</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  Soy Nano y llevo mas de 12 años de experiencia trabajando con todo tipo de personas:
+                  desde quienes recién empiezan hasta atletas que buscan rendir mejor.
+                </p>
+                <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  Dirijo un box de entrenamiento en Buenos Aires, Argentina, que se especializa en programación de fuerza, técnica de los
+                  ejercicios básicos y acompañar procesos de recomposición corporal de forma realista y sostenible.
+                </p>
+              </div>
+            </div>
           </article>
         </div>
 
@@ -40,5 +72,4 @@ export default function About() {
     </section>
   )
 }
-
 

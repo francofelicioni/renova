@@ -3,21 +3,25 @@
 type Profile = {
   title: string
   description: string
+  icon: string
 }
 
 const profiles: Profile[] = [
   {
     title: "Disciplinado estancado",
+    icon: "💪",
     description:
       "Entrenás hace rato, sos constante, pero sentís que tu físico no refleja todo ese esfuerzo. Querés mejorar técnica, progresar en fuerza y ver cambios reales en recomposición corporal.",
   },
   {
     title: "Motivado desorganizado",
+    icon: "⚡️",
     description:
       "Vas al gimnasio, te gusta entrenar, pero no tenés una estructura clara. Hacés un poco de todo, copiás rutinas de redes y no sabés si realmente estás avanzando.",
   },
   {
     title: "Principiante frustrado",
+    icon: "🌱",
     description:
       "Querés empezar (o volver) a entrenar y cambiar tu cuerpo, pero no sabés por dónde arrancar. Buscás un acompañamiento más cercano en entrenamiento, nutrición y hábitos.",
   },
@@ -42,7 +46,12 @@ export default function Profiles() {
               key={profile.title}
               className="flex h-full flex-col rounded-2xl border border-border bg-card/90 p-6 shadow-sm"
             >
-              <h3 className="text-lg sm:text-xl font-semibold text-foreground">{profile.title}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground flex items-center gap-2">
+                <span className="text-2xl" aria-hidden="true">
+                  {profile.icon}
+                </span>
+                <span>{profile.title}</span>
+              </h3>
               <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 {profile.description}
               </p>
