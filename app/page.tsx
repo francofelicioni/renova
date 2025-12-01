@@ -1,6 +1,6 @@
 import Hero from "@/components/hero"
 import HowItWorks from "@/components/how-it-works"
-import Profiles from "@/components/personas"
+import Profiles from "@/components/profiles"
 import PricingCards from "@/components/pricing-cards"
 import LeadMagnet from "@/components/lead-magnet"
 import About from "@/components/about"

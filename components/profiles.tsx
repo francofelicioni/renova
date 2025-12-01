@@ -1,11 +1,11 @@
 "use client"
 
-type Persona = {
+type Profile = {
   title: string
   description: string
 }
 
-const profiles: Persona[] = [
+const profiles: Profile[] = [
   {
     title: "Disciplinado estancado",
     description:
@@ -37,14 +37,14 @@ export default function Profiles() {
         </header>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {profiles.map((persona) => (
+          {profiles.map((profile) => (
             <article
-              key={persona.title}
+              key={profile.title}
               className="flex h-full flex-col rounded-2xl border border-border bg-card/90 p-6 shadow-sm"
             >
-              <h3 className="text-lg sm:text-xl font-semibold text-foreground">{persona.title}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground">{profile.title}</h3>
               <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                {persona.description}
+                {profile.description}
               </p>
             </article>
           ))}
