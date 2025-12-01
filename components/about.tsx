@@ -15,7 +15,7 @@ export default function About() {
         <div className="grid gap-8 md:grid-cols-2">
           <article className="rounded-2xl border border-border bg-card/90 overflow-hidden shadow-sm">
             <div className="flex flex-col">
-              <div className="relative w-full h-64 sm:h-72 md:h-80">
+              <div className="relative w-full h-64 sm:h-72 md:h-90">
                 <Image
                   src="/fran.png"
                   alt="Fran, cofundador de Renova Training"
@@ -41,12 +41,12 @@ export default function About() {
 
           <article className="rounded-2xl border border-border bg-card/90 overflow-hidden shadow-sm">
             <div className="flex flex-col">
-              <div className="relative w-full h-64 sm:h-72 md:h-80">
+              <div className="relative w-full h-64 sm:h-72 md:h-90">
                 <Image
                   src="/nano.png"
                   alt="Nano, cofundador de Renova Training"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="p-6 sm:p-8">
