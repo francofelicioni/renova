@@ -195,7 +195,7 @@ export default function ContactForm() {
             .
           </p>
           <p className="text-xs text-muted-foreground text-center font-light mt-2">
-            También podés escribirnos directamente a tu-email@renovatraining.com o por Instagram @renovatraining.
+            También podés escribirnos directamente a info@renovatraining.com o por Instagram @renova.training.
           </p>
         </form>
       </div>
