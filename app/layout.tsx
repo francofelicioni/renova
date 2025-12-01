@@ -10,46 +10,45 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fast-track-coaching.com"),
-  title: "FAST-TRACK Coaching - Transformación Visible en 12 Semanas Garantizado",
+  metadataBase: new URL("https://renova-amber.vercel.app"),
+  title: "Renova Training – Recomposición corporal para personas que ya entrenan",
   description:
-    "Coaching intensivo y personalizado para definir, ganar músculo o alcanzar tu pico de rendimiento. Plan 100% personalizado con garantía de progreso. Transformación comprobada en 12 semanas.",
+    "Entrenamiento, nutrición y hábitos para personas ocupadas que ya van al gimnasio y quieren resultados reales. Planes online personalizados, seguimiento y soporte real.",
   keywords: [
-    "coaching fitness",
-    "entrenamiento personalizado",
-    "nutrición deportiva",
-    "ganancia muscular",
-    "definición corporal",
-    "transformación física",
+    "recomposición corporal",
+    "entrenamiento personalizado online",
+    "nutrición para personas ocupadas",
+    "ganar músculo y perder grasa",
+    "planes de entrenamiento gimnasio",
+    "coaching online entrenamiento",
   ],
-  authors: [{ name: "FAST-TRACK Coaching" }],
-  creator: "FAST-TRACK Coaching",
-
+  authors: [{ name: "Renova Training" }],
+  creator: "Renova Training",
   openGraph: {
     type: "website",
-    locale: "es_AR",
-    url: "https://fast-track-coaching.com",
-    title: "FAST-TRACK Coaching - Transformación Visible en 12 Semanas",
-    description: "Coaching intensivo y personalizado para definir, ganar músculo o alcanzar tu pico de rendimiento.",
-    siteName: "FAST-TRACK Coaching",
+    locale: "es_ES",
+    url: "https://renova-amber.vercel.app",
+    title: "Renova Training – Recomposición corporal para personas que ya entrenan",
+    description:
+      "Planes online de entrenamiento, nutrición y hábitos para personas ocupadas que ya entrenan y quieren resultados reales.",
+    siteName: "Renova Training",
     images: [
       {
-        url: "https://fast-track-coaching.com/og-image.jpg",
+        url: "https://renova-amber.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "FAST-TRACK Coaching - Transformación Física",
+        alt: "Renova Training – Entrenamiento y recomposición corporal",
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
-    title: "FAST-TRACK Coaching - Transformación en 12 Semanas",
-    description: "Plan personalizado con garantía de progreso. Hombre y mujer entrenando juntos.",
-    creator: "@fasttrackcoaching",
-    images: ["https://fast-track-coaching.com/og-image.jpg"],
+    title: "Renova Training – Recomposición corporal para personas que ya entrenan",
+    description:
+      "Entrenamiento, nutrición y hábitos para personas ocupadas que ya van al gimnasio y quieren resultados reales.",
+    creator: "@renovatraining",
+    images: ["https://renova-amber.vercel.app/og-image.jpg"],
   },
-
   robots: {
     index: true,
     follow: true,
@@ -62,17 +61,15 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
   alternates: {
-    canonical: "https://fast-track-coaching.com",
+    canonical: "https://renova-amber.vercel.app",
   },
-
   viewport: {
     width: "device-width",
     initialScale: 1,
     maximumScale: 5,
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({

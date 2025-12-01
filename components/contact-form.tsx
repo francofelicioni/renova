@@ -9,11 +9,13 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
-    whatsapp: "",
-    objetivo: "Definir",
+    pais: "",
+    nivel: "Entreno hace tiempo",
+    objetivo: "",
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState<{ [key: string]: string }>({})
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -25,28 +27,42 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the data to a server
+    const newErrors: { [key: string]: string } = {}
+
+    if (!formData.nombre.trim()) newErrors.nombre = "El nombre es obligatorio."
+    if (!formData.email.includes("@")) newErrors.email = "Ingresá un email válido."
+    if (!formData.pais.trim()) newErrors.pais = "Indicá tu país."
+    if (!formData.objetivo.trim()) newErrors.objetivo = "Contanos brevemente tu objetivo."
+
+    setErrors(newErrors)
+
+    if (Object.keys(newErrors).length > 0) return
+
     console.log("Form submitted:", formData)
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 3000)
   }
 
   return (
-    <section id="contact" className="py-16 sm:py-24 px-4 bg-gradient-to-b from-background to-[#0f0f0f] relative overflow-hidden">
+    <section
+      id="aplicar"
+      className="py-16 sm:py-24 px-4 bg-gradient-to-b from-background to-[#050608] relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent pointer-events-none"></div>
 
       <div className="max-w-2xl mx-auto relative z-10">
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 text-foreground text-center tracking-tight">
-          Hablemos de Tu Meta
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground text-center tracking-tight">
+          ¿Listo para aplicar a Renova?
         </h2>
-        <p className="text-center text-muted-foreground mb-12 sm:mb-16 text-base sm:text-lg font-light">
-          Completa el formulario y nos pondremos en contacto dentro de 24 horas.
+        <p className="text-center text-muted-foreground mb-12 sm:mb-16 text-base sm:text-lg font-light max-w-2xl mx-auto">
+          Si querés dejar de improvisar y empezar a entrenar con un plan que tenga sentido, contanos en qué punto estás
+          y te recomendamos el mejor camino dentro de Renova.
         </p>
 
         <form
           onSubmit={handleSubmit}
           className="bg-card border border-border/50 rounded-xl p-6 sm:p-8 md:p-12 space-y-6 backdrop-blur-sm"
-          name="contact-form"
+          name="aplicar-programa"
         >
           <div>
             <label
@@ -66,6 +82,7 @@ export default function ContactForm() {
               placeholder="Tu nombre"
               aria-required="true"
             />
+            {errors.nombre && <p className="mt-1 text-xs text-red-400">{errors.nombre}</p>}
           </div>
 
           <div>
@@ -83,26 +100,49 @@ export default function ContactForm() {
               placeholder="tu@email.com"
               aria-required="true"
             />
+            {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
           </div>
 
           <div>
             <label
-              htmlFor="whatsapp"
+              htmlFor="pais"
               className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide"
             >
-              WhatsApp / Teléfono *
+              País *
             </label>
             <input
-              type="tel"
-              id="whatsapp"
-              name="whatsapp"
-              value={formData.whatsapp}
+              type="text"
+              id="pais"
+              name="pais"
+              value={formData.pais}
               onChange={handleChange}
               required
               className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 font-light"
-              placeholder="+34 600 123 456"
+              placeholder="Argentina, España, etc."
               aria-required="true"
             />
+            {errors.pais && <p className="mt-1 text-xs text-red-400">{errors.pais}</p>}
+          </div>
+
+          <div>
+            <label
+              htmlFor="nivel"
+              className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide"
+            >
+              Nivel actual *
+            </label>
+            <select
+              id="nivel"
+              name="nivel"
+              value={formData.nivel}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 cursor-pointer font-light"
+              aria-required="true"
+            >
+              <option value="Entreno hace tiempo">Entreno hace tiempo</option>
+              <option value="Voy al gym pero sin rutina clara">Voy al gym pero sin rutina clara</option>
+              <option value="Estoy empezando desde cero">Estoy empezando desde cero</option>
+            </select>
           </div>
 
           <div>
@@ -110,37 +150,35 @@ export default function ContactForm() {
               htmlFor="objetivo"
               className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide"
             >
-              ¿Cuál es tu objetivo principal? *
+              Objetivo principal *
             </label>
-            <select
+            <input
+              type="text"
               id="objetivo"
               name="objetivo"
               value={formData.objetivo}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 cursor-pointer font-light"
+              required
+              className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 font-light"
+              placeholder="Ej: recomponer mi cuerpo, ganar fuerza, volver a entrenar, etc."
               aria-required="true"
-            >
-              <option value="Definir">Definir / Bajar Grasa</option>
-              <option value="Ganar Músculo">Ganar Músculo</option>
-              <option value="Recomposición">Recomposición</option>
-              <option value="Pico de Rendimiento">Pico de Rendimiento</option>
-              <option value="Otro">Otro</option>
-            </select>
+            />
+            {errors.objetivo && <p className="mt-1 text-xs text-red-400">{errors.objetivo}</p>}
           </div>
 
           <button
             type="submit"
             className="w-full py-3 sm:py-4 bg-accent text-accent-foreground font-bold text-base sm:text-lg rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-accent/30 transform hover:scale-105 flex items-center justify-center gap-2"
-            aria-label="Enviar formulario de contacto"
+            aria-label="Enviar aplicación al programa Renova"
           >
             {submitted ? (
               <>
-                <span>✓ Formulario Enviado</span>
+                <span>✓ Aplicación enviada</span>
               </>
             ) : (
               <>
                 <Send className="w-5 h-5" aria-hidden="true" />
-                Hablemos de tu meta
+                Aplicar al programa
               </>
             )}
           </button>
@@ -155,6 +193,9 @@ export default function ContactForm() {
               Términos
             </a>
             .
+          </p>
+          <p className="text-xs text-muted-foreground text-center font-light mt-2">
+            También podés escribirnos directamente a tu-email@renovatraining.com o por Instagram @renovatraining.
           </p>
         </form>
       </div>

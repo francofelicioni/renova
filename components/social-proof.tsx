@@ -5,21 +5,24 @@ import Image from "next/image"
 export default function SocialProof() {
   const testimonials = [
     {
-      name: "Laura P.",
-      goal: "Definición",
-      quote: "En 10 semanas perdí 5kg de grasa sin perder músculo. El programa fue exactamente lo que necesitaba.",
+      name: "María",
+      goal: "Recomposición corporal",
+      quote:
+        "Antes entrenaba sin rumbo y sentía que no avanzaba. Con Renova empecé a registrar cargas, ajustar mi comida y entrenar con intención. En 3 meses mi fuerza subió y mi cuerpo cambió más que en los últimos 2 años.",
       image: "/testimonial-laura.jpg",
     },
     {
-      name: "Marcos G.",
-      goal: "Recomposición",
-      quote: "No es solo un programa, es un sistema. Me enseñó cómo alimentarme y entrenar correctamente.",
+      name: "Julián",
+      goal: "Orden y estructura",
+      quote:
+        "Siempre fui constante, pero vivía estancado. El plan de Renova me dio una progresión clara y una rutina pensada para mi tiempo y mi nivel. Hoy sé exactamente por qué y cómo entreno cada ejercicio.",
       image: "/testimonial-marcos.jpg",
     },
     {
-      name: "Ana M.",
-      goal: "Pico de Rendimiento",
-      quote: "Las videollamadas semanales marcaron la diferencia. Mi levantamiento mejoró un 20% en 12 semanas.",
+      name: "Lucía",
+      goal: "Acompañamiento premium",
+      quote:
+        "Venía de probar varias rutinas genéricas sin resultados. Con el acompañamiento cercano de Renova pude ajustar mi sueño, mi nutrición y mi técnica. El cambio físico fue grande, pero el de hábitos fue todavía mayor.",
       image: "/testimonial-ana.jpg",
     },
   ]
@@ -28,10 +31,10 @@ export default function SocialProof() {
     <section className="py-16 sm:py-24 px-4 bg-background" id="testimonios">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 text-foreground text-center tracking-tight">
-          Lo Que Dicen Nuestros Clientes
+          Historias reales
         </h2>
         <p className="text-center text-muted-foreground mb-16 sm:mb-20 text-base sm:text-lg">
-          Resultados reales de personas como vos
+          Testimonios de personas que ya entrenaban y hoy sienten que su esfuerzo se ve en el espejo.
         </p>
 
         <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
