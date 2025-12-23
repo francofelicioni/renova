@@ -63,6 +63,10 @@ export default function Profiles() {
           Cada uno de nuestros planes está pensado para encajar mejor con uno de estos perfiles. Más abajo podés ver
           cuál se adapta a vos.
         </p>
+
+        <p className="mt-6 text-center text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+          ¿Estás empezando desde cero? También te guiamos a transformar tus hábitos, tu técnica y tu estilo de vida.
+        </p>
       </div>
     </section>
   )

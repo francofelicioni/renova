@@ -22,7 +22,7 @@ export default function FAQ() {
     {
       question: "¿Necesito experiencia previa entrenando?",
       answer:
-        "No es obligatorio, pero Renova está especialmente pensado para personas que ya entrenan. Si estás empezando desde cero, el plan Renova Prime te da un acompañamiento más cercano para construir bases sólidas.",
+        "No es obligatorio, pero Renova está especialmente pensado para personas que ya entrenan. Si estás empezando desde cero, el plan RENOVA PRIME te da un acompañamiento más cercano para construir bases sólidas.",
     },
     {
       question: "¿En qué se diferencia Renova de una rutina genérica de internet?",
@@ -37,7 +37,7 @@ export default function FAQ() {
     {
       question: "¿Incluyen planes de nutrición?",
       answer:
-        "Sí. Todos los planes incluyen lineamientos de nutrición y Renova Start y Advance incluyen un plan simple o completo ajustado a tu objetivo. En Prime profundizamos además en hábitos de estilo de vida.",
+        "Sí. Todos los planes incluyen lineamientos de nutrición. RENOVA POWER UP y RENOVA PRIME incluyen un plan nutricional completo con guía de macros y distribución. RENOVA PRIME además incluye planificación de alimentos y seguimiento de comidas.",
     },
     {
       question: "¿Cuánto tiempo mínimo recomiendan para ver cambios?",

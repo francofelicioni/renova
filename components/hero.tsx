@@ -55,8 +55,7 @@ export default function Hero() {
           </p>
 
           <p className="mt-6 text-sm text-muted-foreground max-w-md">
-            ¿Estás empezando desde cero? También te guiamos a transformar tus hábitos, tu técnica y tu estilo de vida,
-            especialmente dentro del plan Premium.
+            ¿Estás empezando desde cero? También te guiamos a transformar tus hábitos, tu técnica y tu estilo de vida.
           </p>
         </div>
 

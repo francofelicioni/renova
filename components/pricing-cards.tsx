@@ -1,20 +1,18 @@
 "use client"
 import { Check } from "lucide-react"
+import { plans, type Plan } from "@/lib/plans"
 
-type PricingCardProps = {
-  title: string
-  tagline: string
-  description: string
-  bullets: string[]
-  highlight?: boolean
-  note?: string
-  ctaLabel: string
+type PricingCardProps = Plan & {
+  onSelectPlan?: (planId: string) => void
 }
 
-function PricingCard({ title, tagline, description, bullets, highlight, note, ctaLabel }: PricingCardProps) {
+function PricingCard({ name, price, tagline, description, bullets, highlight, note, ctaLabel, id, onSelectPlan }: PricingCardProps) {
   const scrollToApplication = () => {
     const element = document.getElementById("aplicar")
     element?.scrollIntoView({ behavior: "smooth" })
+    if (onSelectPlan) {
+      onSelectPlan(id)
+    }
   }
 
   return (
@@ -30,8 +28,14 @@ function PricingCard({ title, tagline, description, bullets, highlight, note, ct
           Más elegido
         </div>
       )}
-      <h3 className="text-2xl sm:text-3xl font-bold text-foreground">{title}</h3>
-      <p className="mt-1 text-sm font-semibold text-accent">{tagline}</p>
+      <div className="mb-3">
+        <h3 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">{name}</h3>
+        <div className="mt-2">
+          <span className="text-3xl sm:text-4xl font-bold text-foreground">USD {price}</span>
+          <span className="text-base text-muted-foreground ml-1">/mes</span>
+        </div>
+      </div>
+      <p className="mt-2 text-sm font-semibold text-accent">{tagline}</p>
       <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">{description}</p>
 
       <ul className="mt-6 space-y-3 flex-1">
@@ -43,8 +47,7 @@ function PricingCard({ title, tagline, description, bullets, highlight, note, ct
         ))}
       </ul>
 
-      <div className="mt-6 space-y-3">
-        <p className="text-sm text-muted-foreground font-medium">Consultar precio · Adaptamos el plan a tu contexto.</p>
+      <div className="mt-6">
         <button
           onClick={scrollToApplication}
           className={`w-full rounded-lg px-4 py-3 text-sm sm:text-base font-semibold transition-all duration-300 ${
@@ -64,6 +67,13 @@ function PricingCard({ title, tagline, description, bullets, highlight, note, ct
 }
 
 export default function PricingCards() {
+  const handlePlanSelect = (planId: string) => {
+    // Store selected plan in sessionStorage for form preselection
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("selectedPlan", planId)
+    }
+  }
+
   return (
     <section id="planes" className="py-16 sm:py-24 px-4 bg-background">
       <div className="mx-auto max-w-6xl">
@@ -72,57 +82,14 @@ export default function PricingCards() {
             Planes Renova
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-            Elegí el plan que mejor encaje con tu punto de partida y tu nivel de acompañamiento.
+            Elegí el plan que mejor encaje con tu punto de partida y el nivel de acompañamiento que buscás.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <PricingCard
-            title="Renova Start"
-            tagline="Orden y estructura para quienes ya entrenan."
-            description="Para personas que van al gimnasio, están motivadas, pero necesitan una rutina clara y un plan de nutrición simple para dejar de improvisar."
-            bullets={[
-              "Plan de entrenamiento mensual personalizado",
-              "Plan de nutrición simple ajustado a tu objetivo",
-              "Ajustes cada 2 semanas según tu feedback",
-              "Plantillas Renova para registrar cargas y progresión",
-              "Acceso a grupo privado de comunidad",
-            ]}
-            ctaLabel="Quiero Renova Start"
-          />
-
-          <PricingCard
-            title="Renova Advance"
-            tagline="Para quienes ya entrenan en serio y quieren romper el estancamiento."
-            description="Ideal si entrenás 3–5 veces por semana, ya tenés experiencia y buscás un sistema más técnico, con progresión real y seguimiento cercano."
-            bullets={[
-              "Plan de entrenamiento semanalizado 100% personalizado",
-              "Plan nutricional completo y flexible",
-              "Ajustes semanales según progreso y feedback",
-              "Análisis de técnica con envío de videos (2–4 por semana)",
-              "Seguimiento por chat con respuesta en 24h",
-              "Tablero de progresión (fuerza, medidas, hábitos)",
-            ]}
-            highlight
-            ctaLabel="Quiero Renova Advance"
-            note="Recomendado para el perfil disciplinado estancado y motivado desorganizado."
-          />
-
-          <PricingCard
-            title="Renova Prime"
-            tagline="Transformación completa con acompañamiento premium."
-            description="Para quienes quieren un cambio profundo en su físico y estilo de vida: entrenamiento, nutrición, hábitos y soporte cercano."
-            bullets={[
-              "Todo lo incluido en Renova Advance",
-              "Sesiones 1:1 online (mensuales o quincenales, según definamos)",
-              "Plan de hábitos y estilo de vida personalizado",
-              "Revisión de técnica ilimitada según necesidad",
-              "Análisis de sueño, estrés y energía",
-              "Prioridad máxima en respuestas y soporte",
-            ]}
-            ctaLabel="Quiero Renova Prime"
-            note="Pensado especialmente para el perfil principiante frustrado o quienes quieren un cambio integral."
-          />
+          {plans.map((plan) => (
+            <PricingCard key={plan.id} {...plan} onSelectPlan={handlePlanSelect} />
+          ))}
         </div>
 
         <p className="mt-8 text-center text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto">

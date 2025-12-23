@@ -2,8 +2,9 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Send } from "lucide-react"
+import { plans } from "@/lib/plans"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -11,8 +12,20 @@ export default function ContactForm() {
     email: "",
     pais: "",
     nivel: "Entreno hace tiempo",
+    plan: "",
     objetivo: "",
   })
+
+  // Check for preselected plan from pricing cards
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const selectedPlan = sessionStorage.getItem("selectedPlan")
+      if (selectedPlan) {
+        setFormData((prev) => ({ ...prev, plan: selectedPlan }))
+        sessionStorage.removeItem("selectedPlan") // Clear after use
+      }
+    }
+  }, [])
 
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<{ [key: string]: string }>({})
@@ -142,6 +155,29 @@ export default function ContactForm() {
               <option value="Entreno hace tiempo">Entreno hace tiempo</option>
               <option value="Voy al gym pero sin rutina clara">Voy al gym pero sin rutina clara</option>
               <option value="Estoy empezando desde cero">Estoy empezando desde cero</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              htmlFor="plan"
+              className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide"
+            >
+              Plan de interés (opcional)
+            </label>
+            <select
+              id="plan"
+              name="plan"
+              value={formData.plan}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 cursor-pointer font-light"
+            >
+              <option value="">No estoy seguro aún</option>
+              {plans.map((plan) => (
+                <option key={plan.id} value={plan.id}>
+                  {plan.name} - USD {plan.price}/mes
+                </option>
+              ))}
             </select>
           </div>
 
