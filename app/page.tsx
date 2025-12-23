@@ -1,3 +1,4 @@
+import Header from "@/components/header"
 import Hero from "@/components/hero"
 import HowItWorks from "@/components/how-it-works"
 import Profiles from "@/components/profiles"
@@ -18,6 +19,7 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-background" role="main">
+      <Header />
       <Hero />
       <HowItWorks />
       <Profiles />
