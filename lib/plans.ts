@@ -20,7 +20,7 @@ export const plans: Plan[] = [
     description:
       "Para personas que van al gimnasio y están motivadas, pero no tienen una estructura clara. Ideal si querés progresar con un plan semanal y correcciones técnicas sin complicarte.",
     bullets: [
-      "Planificación macro / meso / micro",
+      "Planificación 100% personalizada",
       "Rutina con actualización semanal (según progreso y feedback)",
       "Respuesta rápida a consultas (chat)",
       "Corrección de técnica con soporte por video",
@@ -38,7 +38,7 @@ export const plans: Plan[] = [
     description:
       "Entrenás hace tiempo y sos constante, pero querés un cambio visible. Más técnica, más progresión, mejor planificación y nutrición enfocada a recomposición corporal.",
     bullets: [
-      "Planificación macro / meso / micro",
+      "Planificación 100% personalizada",
       "Rutina con actualización semanal (según progreso y feedback)",
       "Respuesta rápida a consultas (chat)",
       "Corrección de técnica con soporte por video",
@@ -59,8 +59,8 @@ export const plans: Plan[] = [
     description:
       "Si estás empezando desde cero (o volviendo después de mucho), este es tu camino con soporte cercano: técnica, nutrición, hábitos y seguimiento. Ideal si querés cambiar tu estilo de vida.",
     bullets: [
+      "Planificación 100% personalizada",
       "Camino técnico desde la planificación (aprendizaje + ejecución)",
-      "Planificación macro / meso / micro",
       "Rutina con actualización semanal (según progreso y feedback)",
       "Respuesta rápida a consultas (chat)",
       "Corrección de técnica con soporte por video",

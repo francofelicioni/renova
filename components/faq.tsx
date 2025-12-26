@@ -12,7 +12,7 @@ function FAQItem({ question, answer }: FAQItemProps) {
         <span className="text-sm sm:text-base font-semibold text-foreground">{question}</span>
         <span className="text-xl text-muted-foreground group-open:rotate-180 transition-transform duration-200">⌄</span>
       </summary>
-      <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">{answer}</p>
+      <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">{answer}</p>
     </details>
   )
 }
@@ -43,6 +43,11 @@ export default function FAQ() {
       question: "¿Cuánto tiempo mínimo recomiendan para ver cambios?",
       answer:
         "Depende de tu punto de partida, pero recomendamos al menos 12 semanas de trabajo consistente para ver cambios claros en recomposición corporal y rendimiento.",
+    },
+    {
+      question: "¿Cómo puedo pagar los planes?",
+      answer:
+        "Los planes se abonan mediante transferencia bancaria.\nLos precios están expresados en dólares estadounidenses (USD), pero pueden pagarse en pesos argentinos, tomando como referencia la cotización del dólar blue del día al momento del pago.\n\nUna vez que apliques al programa y definamos el plan más adecuado para vos, te enviamos todos los datos necesarios para realizar el pago de forma simple y segura.",
     },
   ]
 
