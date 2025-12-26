@@ -29,6 +29,7 @@ export default function ContactForm() {
 
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<{ [key: string]: string }>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -38,7 +39,7 @@ export default function ContactForm() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const newErrors: { [key: string]: string } = {}
 
@@ -51,9 +52,39 @@ export default function ContactForm() {
 
     if (Object.keys(newErrors).length > 0) return
 
-    console.log("Form submitted:", formData)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      setSubmitted(true)
+      // Reset form after successful submission
+      setFormData({
+        nombre: "",
+        email: "",
+        pais: "",
+        nivel: "Entreno hace tiempo",
+        plan: "",
+        objetivo: "",
+      })
+      setTimeout(() => setSubmitted(false), 3000)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setErrors({ submit: 'Hubo un error al enviar el mensaje. Por favor, intentá nuevamente.' })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -202,14 +233,22 @@ export default function ContactForm() {
             {errors.objetivo && <p className="mt-1 text-xs text-red-400">{errors.objetivo}</p>}
           </div>
 
+          {errors.submit && (
+            <p className="text-sm text-red-400 text-center">{errors.submit}</p>
+          )}
           <button
             type="submit"
-            className="w-full py-3 sm:py-4 bg-accent text-accent-foreground font-bold text-base sm:text-lg rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-accent/30 transform hover:scale-105 flex items-center justify-center gap-2"
+            disabled={isSubmitting || submitted}
+            className="w-full py-3 sm:py-4 bg-accent text-accent-foreground font-bold text-base sm:text-lg rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-accent/30 transform hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             aria-label="Enviar aplicación al programa Renova"
           >
             {submitted ? (
               <>
                 <span>✓ Aplicación enviada</span>
+              </>
+            ) : isSubmitting ? (
+              <>
+                <span>Enviando...</span>
               </>
             ) : (
               <>
