@@ -6,8 +6,9 @@ export default function LeadMagnet() {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
 
@@ -16,9 +17,31 @@ export default function LeadMagnet() {
       return
     }
 
-    console.log("Lead magnet email:", email)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/lead-magnet', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'Failed to submit email')
+      }
+
+      setSubmitted(true)
+      setEmail("") // Reset email field
+      setTimeout(() => setSubmitted(false), 3000)
+    } catch (error) {
+      console.error('Error submitting lead magnet:', error)
+      setError('Hubo un error al enviar. Por favor, intentá nuevamente.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -54,9 +77,10 @@ export default function LeadMagnet() {
           </div>
           <button
             type="submit"
-            className="w-full sm:w-auto rounded-lg bg-accent px-6 py-3 text-sm sm:text-base font-semibold text-accent-foreground transition-all duration-300 hover:bg-accent/90 shadow-md shadow-accent/30"
+            disabled={isSubmitting || submitted}
+            className="w-full sm:w-auto rounded-lg bg-accent px-6 py-3 text-sm sm:text-base font-semibold text-accent-foreground transition-all duration-300 hover:bg-accent/90 shadow-md shadow-accent/30 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {submitted ? "Enviado" : "Quiero la guía"}
+            {submitted ? "Enviado" : isSubmitting ? "Enviando..." : "Quiero la guía"}
           </button>
         </form>
         {error && <p className="mt-2 text-xs text-red-400 text-center">{error}</p>}
