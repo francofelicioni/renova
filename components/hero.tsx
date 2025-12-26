@@ -65,7 +65,7 @@ export default function Hero() {
           <div className="rounded-2xl border border-accent/20 bg-card/90 shadow-2xl p-5 sm:p-6 flex flex-col gap-4">
             <div className="aspect-[4/3] w-full overflow-hidden rounded-xl mb-2 bg-gradient-to-br from-accent/20 via-background to-background/80 flex items-center justify-center">
               <img
-                src="/fitness-couple-training-form.jpg"
+                src="/hero-image.jpg"
                 alt="Entrenamiento de fuerza con buena técnica representando Renova Training"
                 className="h-full w-full object-cover"
                 loading="eager"
