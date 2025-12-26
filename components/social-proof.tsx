@@ -9,21 +9,21 @@ export default function SocialProof() {
       goal: "Recomposición corporal",
       quote:
         "Antes entrenaba sin rumbo y sentía que no avanzaba. Con Renova empecé a registrar cargas, ajustar mi comida y entrenar con intención. En 3 meses mi fuerza subió y mi cuerpo cambió más que en los últimos 2 años.",
-      image: "/testimonial-laura.jpg",
+      image: "/profile2.jpg",
     },
     {
       name: "Julián",
       goal: "Orden y estructura",
       quote:
         "Siempre fui constante, pero vivía estancado. El plan de Renova me dio una progresión clara y una rutina pensada para mi tiempo y mi nivel. Hoy sé exactamente por qué y cómo entreno cada ejercicio.",
-      image: "/testimonial-marcos.jpg",
+      image: "/profile3.jpg",
     },
     {
-      name: "Lucía",
+      name: "Marcos",
       goal: "Acompañamiento premium",
       quote:
         "Venía de probar varias rutinas genéricas sin resultados. Con el acompañamiento cercano de Renova pude ajustar mi sueño, mi nutrición y mi técnica. El cambio físico fue grande, pero el de hábitos fue todavía mayor.",
-      image: "/testimonial-ana.jpg",
+      image: "/profile1.jpg",
     },
   ]
 
