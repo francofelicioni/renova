@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://renova-amber.vercel.app"),
+  metadataBase: new URL("https://renovatraining.com"),
   title: "Renova Training – Recomposición corporal para personas que ya entrenan",
   description:
     "Entrenamiento, nutrición y hábitos para personas ocupadas que ya van al gimnasio y quieren resultados reales. Planes online personalizados, seguimiento y soporte real.",
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://renova-amber.vercel.app",
+    url: "https://renovatraining.com",
     title: "Renova Training – Recomposición corporal para personas que ya entrenan",
     description:
       "Planes online de entrenamiento, nutrición y hábitos para personas ocupadas que ya entrenan y quieren resultados reales.",
     siteName: "Renova Training",
     images: [
       {
-        url: "https://renova-amber.vercel.app/og-image.jpg",
+        url: "https://renovatraining.com/renova-logo.png",
         width: 1200,
         height: 630,
         alt: "Renova Training – Entrenamiento y recomposición corporal",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description:
       "Entrenamiento, nutrición y hábitos para personas ocupadas que ya van al gimnasio y quieren resultados reales.",
     creator: "@renovatraining",
-    images: ["https://renova-amber.vercel.app/og-image.jpg"],
+    images: ["https://renovatraining.com/renova-logo.png"],
   },
   robots: {
     index: true,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://renova-amber.vercel.app",
+    canonical: "https://renovatraining.com",
   },
   viewport: {
     width: "device-width",
