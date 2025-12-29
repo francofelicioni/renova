@@ -70,6 +70,10 @@ export const metadata: Metadata = {
     maximumScale: 5,
   },
   generator: "v0.app",
+  icons: {
+    icon: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({
@@ -82,8 +86,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/apple-touch-icon.png" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         <script
