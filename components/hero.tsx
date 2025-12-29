@@ -13,7 +13,7 @@ export default function Hero() {
 
   return (
     <section
-      className="min-h-[80vh] flex items-center bg-background px-4 py-16 sm:py-20"
+      className="min-h-[80vh] flex items-center bg-background px-4 py-8 sm:py-20"
       id="hero"
     >
       <div className="max-w-6xl mx-auto w-full grid gap-12 lg:grid-cols-2 items-center">
