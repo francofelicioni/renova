@@ -89,6 +89,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/apple-touch-icon.png" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="facebook-domain-verification" content="4lw3xqjf7wvh84799c2emjy0zzrp1c" />
 
         <script
           type="application/ld+json"
