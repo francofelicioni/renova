@@ -12,64 +12,36 @@ export default function About() {
           </h2>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          <article className="rounded-2xl border border-border bg-card/90 overflow-hidden shadow-sm">
-            <div className="flex flex-col">
-              <div className="relative w-full h-84 sm:h-72 md:h-120">
-                <Image
-                  src="/fran.jpg"
-                  alt="Fran, cofundador de Renova Training"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-              <div className="p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">Fran</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  Soy Fran, desarrollador web y apasionado del entrenamiento de fuerza. Después de años entrenando por
-                  mi cuenta, logré una recomposición corporal muy grande al empezar a entrenar con planificación,
-                  técnica y hábitos bien trabajados.
-                </p>
-                <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  Hoy uso mi experiencia como alumno y mi cambio físico como ejemplo para acompañar a personas que
-                  están en el mismo camino.
-                </p>
-              </div>
+        <article className="mx-auto max-w-2xl rounded-2xl border border-border bg-card/90 overflow-hidden shadow-sm">
+          <div className="flex flex-col">
+            <div className="relative w-full h-84 sm:h-72 md:h-120">
+              <Image
+                src="/fran.jpg"
+                alt="Fran, fundador de Renova Training"
+                fill
+                className="object-cover object-top"
+                priority
+              />
             </div>
-          </article>
-
-          <article className="rounded-2xl border border-border bg-card/90 overflow-hidden shadow-sm">
-            <div className="flex flex-col">
-              <div className="relative w-full h-84 sm:h-72 md:h-120">
-                <Image
-                  src="/nano.jpg"
-                  alt="Nano, cofundador de Renova Training"
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-              <div className="p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2"> Nano</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  Soy Nano y llevo mas de 12 años de experiencia trabajando con todo tipo de personas:
-                  desde quienes recién empiezan hasta atletas que buscan rendir mejor.
-                </p>
-                <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  Dirijo un box de entrenamiento en Buenos Aires, Argentina, que se especializa en programación de fuerza, técnica de los
-                  ejercicios básicos y acompañar procesos de recomposición corporal de forma realista y sostenible.
-                </p>
-              </div>
+            <div className="p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">Fran</h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Soy Fran, personal trainer y apasionado del entrenamiento de fuerza. Después de años entrenando por mi
+                cuenta, logré una recomposición corporal muy grande al empezar a entrenar con planificación, técnica y
+                hábitos bien trabajados.
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Hoy uso mi experiencia como alumno y mi cambio físico como ejemplo para acompañar a personas que están
+                en el mismo camino.
+              </p>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
 
         <p className="mt-8 text-center text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto">
-          Combinamos experiencia técnica y experiencia real como alumnos para crear programas online que se puedan
-          seguir en la vida real, sin recetas mágicas ni promesas vacías.
+          Creo programas online que se puedan seguir en la vida real, sin recetas mágicas ni promesas vacías.
         </p>
       </div>
     </section>
   )
 }
-

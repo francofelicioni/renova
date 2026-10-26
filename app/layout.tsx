@@ -96,55 +96,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "FAST-TRACK Coaching",
-              description: "Coaching intensivo de fitness personalizado con garantía de progreso",
-              url: "https://fast-track-coaching.com",
-              telephone: "+34600000000",
-              areaServed: ["AR", "ES", "LA"],
-              priceRange: "€€",
-              image: "https://fast-track-coaching.com/og-image.jpg",
-              sameAs: ["https://www.instagram.com/fasttrackcoaching", "https://www.tiktok.com/@fasttrackcoaching"],
-            }),
-          }}
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              name: "FAST-TRACK - Transformación Visible en 12 Semanas",
-              description:
-                "Programa de coaching intensivo personalizado con plan de entrenamiento, nutrición y seguimiento semanal",
-              provider: {
-                "@type": "LocalBusiness",
-                name: "FAST-TRACK Coaching",
-              },
-              areaServed: "Worldwide",
-              offers: {
-                "@type": "AggregateOffer",
-                priceCurrency: "EUR",
-                highPrice: "299",
-                lowPrice: "39",
-                offerCount: "2",
-              },
-            }),
-          }}
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "AggregateRating",
-              ratingValue: "5.0",
-              ratingCount: "3",
-              bestRating: "5",
-              worstRating: "1",
-              name: "FAST-TRACK Coaching",
+              "@type": "Organization",
+              name: "Renova Training",
+              url: "https://renovatraining.com",
+              logo: "https://renovatraining.com/renova-logo.png",
+              sameAs: ["https://www.instagram.com/renova.training"],
             }),
           }}
         />
